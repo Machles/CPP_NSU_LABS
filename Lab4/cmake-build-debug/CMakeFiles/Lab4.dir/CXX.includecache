@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/NSU/Labs/Lab4/CSVParser.h
+tuple
+-
+vector
+-
+istream
+-
+sstream
+-
+iostream
+-
+QuotesStatement.h
+D:/NSU/Labs/Lab4/QuotesStatement.h
+
+D:/NSU/Labs/Lab4/QuotesStatement.h
+
+D:/NSU/Labs/Lab4/main.cpp
+iostream
+-
+tuple
+-
+fstream
+-
+CSVParser.h
+D:/NSU/Labs/Lab4/CSVParser.h
+printTuple.h
+D:/NSU/Labs/Lab4/printTuple.h
+
+D:/NSU/Labs/Lab4/printTuple.h
+ostream
+-
+
