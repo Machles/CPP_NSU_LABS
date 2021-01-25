@@ -71,7 +71,7 @@
       <workItem from="1611331800314" duration="1707000" />
       <workItem from="1611422756748" duration="897000" />
       <workItem from="1611549332017" duration="3640000" />
-      <workItem from="1611553154863" duration="5095000" />
+      <workItem from="1611553154863" duration="5903000" />
     </task>
     <servers />
   </component>
@@ -79,22 +79,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611558276325">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611562151766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611558276325" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611558276325">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611562151766" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611562151766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611558276325" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611558276325">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611562151766" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611562151766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611558276325" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611558276325">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611562151766" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611562151766">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611558276325" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611562151766" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1611558273249">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -121,25 +121,6 @@
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611331180274" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Lab4/CSVParser.h</url>
-          <line>123</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Lab4/CSVParser.h</url>
-          <line>124</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Lab4/CSVParser.h</url>
-          <line>131</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="this" />

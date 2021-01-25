@@ -161,6 +161,8 @@ private:
                             fields[idx].push_back(_rowDelimeter);
                         } if(_buffer[i] == _quoteSymbol){
                             fields[idx].push_back(_quoteSymbol);
+                        } if(_buffer[i] == _shieldingSymbol){
+                            fields[idx].push_back(_shieldingSymbol);
                         }
                         qqFlag = 1;
                     } else if (_buffer[i] == _shieldingSymbol) {
