@@ -18,7 +18,7 @@ private:
     const char _rowDelimeter;   // Row Delimeter
     const char _colDelimeter;   // Column Delimeter
     const char _shieldingSymbol;
-    const char _quoteSymb = '"';
+    const char _quoteSymbol = '"';
     size_t _skip; // skip first lines count
 
     string _buffer; // Hold string
@@ -111,7 +111,7 @@ private:
             }
             case 3: {
                 if (currentState == FieldState::ShieldedField) {
-                    if ( symbol == _colDelimeter || symbol == _rowDelimeter || symbol == _quoteSymb || symbol == _shieldingSymbol ) {
+                    if ( symbol == _colDelimeter || symbol == _rowDelimeter || symbol == _quoteSymbol || symbol == _shieldingSymbol ) {
                         return true;
                     } else {
                         return false;
@@ -128,12 +128,13 @@ private:
         getline(_istr, _buffer);
 
         for (size_t i = 0; i < _buffer.size(); ++i) {
-            size_t tst = _buffer.size();
             switch (currentState) {
                 case FieldState::QuotedField:
                     if (_buffer[i] == _shieldingSymbol) {
                         currentState = FieldState::ShieldedField;
-                    } else {
+                    } else if(_buffer[i] == _quoteSymbol){
+                        currentState = FieldState::NoQoutedField;
+                    }else {
                         fields[idx].push_back(_buffer[i]);
                     }
                     break;
@@ -141,7 +142,7 @@ private:
                     if (_buffer[i] == _colDelimeter) {
                         fields.emplace_back("");
                         ++idx;
-                    } else if (_buffer[i] == _quoteSymb) {
+                    } else if (_buffer[i] == _quoteSymbol) {
                         currentState = FieldState::QuotedField;
                     } else {
                         if( checkCorrectionForSymbol(idx, _buffer[i], currentState) ){
@@ -158,8 +159,8 @@ private:
                             fields[idx].push_back(_colDelimeter);
                         } if(_buffer[i] == _rowDelimeter){
                             fields[idx].push_back(_rowDelimeter);
-                        } if(_buffer[i] == _quoteSymb){
-                            fields[idx].push_back(_quoteSymb);
+                        } if(_buffer[i] == _quoteSymbol){
+                            fields[idx].push_back(_quoteSymbol);
                         }
                         qqFlag = 1;
                     } else if (_buffer[i] == _shieldingSymbol) {
