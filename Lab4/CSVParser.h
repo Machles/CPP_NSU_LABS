@@ -7,7 +7,7 @@
 #include <sstream>
 #include <iostream>
 
-#include "QuotesStatement.h"
+#include "FieldState.h"
 
 using namespace std;
 
@@ -86,7 +86,7 @@ private:
         return true;
     }
 
-    bool checkCorrectionForSymbol(const size_t& idx, const char& symbol, QuotesStatement currentState){
+    bool checkCorrectionForSymbol(const size_t& idx, const char& symbol, FieldState currentState){
         switch (idx) {
             case 0: {
                 if (symbol <= '9' && symbol >= '0') {
@@ -110,8 +110,8 @@ private:
                 }
             }
             case 3: {
-                if (currentState == QuotesStatement::QQField) {
-                    if ( symbol == _colDelimeter || symbol == _rowDelimeter || symbol == _quoteSymb ) {
+                if (currentState == FieldState::ShieldedField) {
+                    if ( symbol == _colDelimeter || symbol == _rowDelimeter || symbol == _quoteSymb || symbol == _shieldingSymbol ) {
                         return true;
                     } else {
                         return false;
@@ -124,24 +124,25 @@ private:
     vector<string> readString() {
         size_t idx = 0;
         vector<string> fields = {""};
-        QuotesStatement currentState = QuotesStatement::NoQField;
+        FieldState currentState = FieldState::NoQoutedField;
         getline(_istr, _buffer);
 
         for (size_t i = 0; i < _buffer.size(); ++i) {
+            size_t tst = _buffer.size();
             switch (currentState) {
-                case QuotesStatement::QField:
-                    if (_buffer[i] == _quoteSymb) {
-                        currentState = QuotesStatement::QQField;
+                case FieldState::QuotedField:
+                    if (_buffer[i] == _shieldingSymbol) {
+                        currentState = FieldState::ShieldedField;
                     } else {
                         fields[idx].push_back(_buffer[i]);
                     }
                     break;
-                case QuotesStatement::NoQField:
+                case FieldState::NoQoutedField:
                     if (_buffer[i] == _colDelimeter) {
                         fields.emplace_back("");
                         ++idx;
                     } else if (_buffer[i] == _quoteSymb) {
-                        currentState = QuotesStatement::QField;
+                        currentState = FieldState::QuotedField;
                     } else {
                         if( checkCorrectionForSymbol(idx, _buffer[i], currentState) ){
                             fields[idx].push_back(_buffer[i]);
@@ -150,9 +151,9 @@ private:
                         }
                     }
                     break;
-                case QuotesStatement::QQField:
+                case FieldState::ShieldedField:
+                    char symb = _buffer[i];
                     if (checkCorrectionForSymbol(idx,_buffer[i], currentState) && qqFlag == 0) {
-                        char symb = _buffer[i];
                         if(_buffer[i] == _colDelimeter){
                             fields[idx].push_back(_colDelimeter);
                         } if(_buffer[i] == _rowDelimeter){
@@ -161,8 +162,8 @@ private:
                             fields[idx].push_back(_quoteSymb);
                         }
                         qqFlag = 1;
-                    } else if (_buffer[i] == _quoteSymb) {
-                        currentState = QuotesStatement::QField;
+                    } else if (_buffer[i] == _shieldingSymbol) {
+                        currentState = FieldState::QuotedField;
                         qqFlag = 0;
                     } else {
                         throw invalid_argument(", exactly in column " + to_string(idx+1) + "." );
@@ -171,7 +172,7 @@ private:
             }
 
             if (i == _buffer.size() - 1) { // Дошли до конца строки буффера
-                if (currentState == QuotesStatement::QField) {
+                if (currentState == FieldState::QuotedField) {
                     fields[idx].push_back(_rowDelimeter);
                     getline(_istr, _buffer);
                     i = -1;
@@ -184,7 +185,7 @@ private:
         }
 
         if (fields.size() == 1){
-            throw invalid_argument("File is empty!");
+            throw invalid_argument("\nFile is empty!");
         }
 
         return fields;

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/NSU/Labs/Lab4/CSVParser.h
+D:/NSU/CPP_NSU_LABS/Lab4/CSVParser.h
 tuple
 -
 vector
@@ -17,12 +17,12 @@ sstream
 -
 iostream
 -
-QuotesStatement.h
-D:/NSU/Labs/Lab4/QuotesStatement.h
+FieldState.h
+D:/NSU/CPP_NSU_LABS/Lab4/FieldState.h
 
-D:/NSU/Labs/Lab4/QuotesStatement.h
+D:/NSU/CPP_NSU_LABS/Lab4/FieldState.h
 
-D:/NSU/Labs/Lab4/main.cpp
+D:/NSU/CPP_NSU_LABS/Lab4/main.cpp
 iostream
 -
 tuple
@@ -30,11 +30,11 @@ tuple
 fstream
 -
 CSVParser.h
-D:/NSU/Labs/Lab4/CSVParser.h
+D:/NSU/CPP_NSU_LABS/Lab4/CSVParser.h
 printTuple.h
-D:/NSU/Labs/Lab4/printTuple.h
+D:/NSU/CPP_NSU_LABS/Lab4/printTuple.h
 
-D:/NSU/Labs/Lab4/printTuple.h
+D:/NSU/CPP_NSU_LABS/Lab4/printTuple.h
 ostream
 -
 
